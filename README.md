@@ -1,7 +1,7 @@
 # mineflayer-web-bot
 Run up to 50 minecraft java bots on a server and control their chat. (Microsoft Accounts Only)
 
-
+![image](https://user-images.githubusercontent.com/100248334/226503831-5fccbb13-99d4-45b7-8510-d7eef57c16e8.png)
 HOW TO RUN?
 
 1. Download the Zip file
@@ -27,5 +27,3 @@ Message me on discord if you need any help TraderGold#1803
 
 If you would like to add functionalities to this program please do :)
 
-
-![image](https://user-images.githubusercontent.com/100248334/226503831-5fccbb13-99d4-45b7-8510-d7eef57c16e8.png)
