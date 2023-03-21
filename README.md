@@ -20,6 +20,8 @@ Things that don't work:
 
 Connect Message currently does not work, you will need to individually send messages.
 Sending a chat message under the "All" bot function does not work, you will need to send messages individually.
+Support for version 1.19.4 does not work yet
+
 
 Message me on discord if you need any help TraderGold#1803
 
