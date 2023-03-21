@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>General</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="general.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/general">General</a></li>
+      </ul>
+    </nav>
+    <button id="toggle-dark-mode" onclick="toggleDarkMode()">Dark Mode</button>
+  </header>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .chat-box {
+      width: 1000px;
+      height: 190px;
+      position: static;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .input-area {
+      display: flex;
+      align-items: center;
+    }
+
+    #chat-input {
+      width: 450px; /* Set the chat-input width to 450px */
+      margin-right: 0.5rem;
+    }
+  </style>
+<main>
+  <div class="container">
+    <div>
+      <section>
+        <h2>General</h2>
+        <label for="server-address">Server Address:</label>
+        <input type="text" id="server-address" onchange="saveConfig()">
+        <label for="version">Version:</label>
+        <select id="version" onchange="saveConfig()">
+          <option value="1.19.4">1.19.4</option>
+          <option value="1.19.3">1.19.3</option>
+          <option value="1.19.2">1.19.2</option>
+          <option value="1.19.1">1.19.1</option>
+          <option value="1.19">1.19</option>
+          <option value="1.18.2">1.18.2</option>
+          <option value="1.18.1">1.18.1</option>
+          <option value="1.18">1.18</option>
+          <option value="1.17.1">1.17.1</option>
+          <option value="1.17">1.17</option>
+          <option value="1.16.5">1.16.5</option>
+          <option value="1.16.4">1.16.4</option>
+          <option value="1.16.3">1.16.3</option>
+          <option value="1.16.2">1.16.2</option>
+          <option value="1.16.1">1.16.1</option>
+          <option value="1.16">1.16</option>
+          <option value="1.15.2">1.15.2</option>
+          <option value="1.15.1">1.15.1</option>
+          <option value="1.15">1.15</option>
+          <option value="1.14.4">1.14.4</option>
+          <option value="1.14.3">1.14.3</option>
+          <option value="1.14.2">1.14.2</option>
+          <option value="1.14.1">1.14.1</option>
+          <option value="1.14">1.14</option>
+          <option value="1.13.2">1.13.2</option>
+          <option value="1.13.1">1.13.1</option>
+          <option value="1.13">1.13</option>
+          <option value="1.12.2">1.12.2</option>
+          <option value="1.12.1">1.12.1</option>
+          <option value="1.12">1.12</option>
+          <option value="1.11.2">1.11.2</option>
+          <option value="1.11.1">1.11.1</option>
+          <option value="1.11">1.11</option>
+          <option value="1.10.2">1.10.2</option>
+          <option value="1.10.1">1.10.1</option>
+          <option value="1.10">1.10</option>
+          <option value="1.9.4">1.9.4</option>
+          <option value="1.9.2">1.9.2</option>
+          <option value="1.9.1">1.9.1</option>
+          <option value="1.9">1.9</option>
+          <option value="1.8.9">1.8.9</option>
+          <option value="1.8">1.8</option>
+          <option value="">Auto (beta)</option>
+        </select>
+        <label for="number-of-bots">Number of Bots (1-50):</label>
+        <input type="number" id="number-of-bots" min="1" max="50" value="1" onchange="saveConfig()">
+        <label for="throttling-delay">Throttling Delay (ms):</label>
+        <input type="number" id="throttling-delay" min="0" value="0" onchange="saveConfig()">
+        <label for="connect-message">Connect Message:</label>
+        <input type="text" id="connect-message" onchange="saveConfig()">
+        <button id="start-stop">Start</button>
+      </section>
+      <section>
+        <h2>Connecting</h2>
+        <label for="auto-reconnect">Auto Reconnect:</label>
+        <input type="checkbox" id="auto-reconnect" checked onchange="saveConfig()">
+        <label for="max-retries">Max Retries on Disconnect:</label>
+        <input type="number" id="max-retries" min="1" value="1" onchange="saveConfig()">
+        <label for="connect-message-checkbox">Connect Message:</label>
+        <input type="checkbox" id="connect-message-checkbox" checked onchange="saveConfig()">
+      </section>
+    </div>
+    <section class="chat-section">
+      <h2>Chat</h2>
+      <label for="bot-selector">Select Bot:</label>
+      <select id="bot-selector" onchange="changeSelectedBot()">
+        <option value="all">All</option>
+      </select>
+      <button id="refresh-bot-list">Refresh Bot List</button>
+      <div class="chat-box">
+        <ul id="chat-messages"></ul>
+      </div>
+      <div class="input-area">
+        <input type="text" id="chat-input" placeholder="Type your message here...">
+        <button id="send-message">Send</button>
+      </div>
+    </section>
+    <section class="auth-section">
+      <h2>Auth Data</h2>
+      <div class="auth-data-box">
+        <pre id="auth-data"></pre>
+      </div>
+    </section>    
+  </div>
+</main>
+<script>
+  function trimChatMessages() {
+    const chatMessages = document.getElementById('chat-messages');
+    while (chatMessages.children.length > 10) {
+      chatMessages.removeChild(chatMessages.firstChild);
+    }
+  }
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>

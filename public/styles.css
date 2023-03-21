@@ -1,0 +1,190 @@
+/* General styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+  color: #000;
+}
+
+header {
+  background-color: #333;
+  padding: 0.5rem 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+nav li a:hover {
+  background-color: #555;
+}
+
+.container {
+  padding: 2rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+input, select, button {
+  font-family: inherit;
+}
+
+input[type="text"], input[type="number"], select {
+  padding: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #000;
+  background-color: #ffffff;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Flex containers */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .flex-item {
+    width: 100%;
+  }
+}
+
+#toggle-dark-mode {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#toggle-dark-mode:hover {
+  background-color: #555;
+}
+
+.chat-box {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.chat-box .message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.chat-box .message .author {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #f5f5f5;
+}
+
+.chat-box .message .content {
+  margin-bottom: 0.5rem;
+  color: #f5f5f5;
+}
+
+.chat-box .message .timestamp {
+  font-size: 0.75rem;
+  color: #999;
+}
+/* Dark mode styles */
+body.dark-mode {
+  background-image: url('Dark-Navy-Blue-Wallpaper.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ccc;
+}
+
+input[type="text"], input[type="number"], select {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #ccc;
+}
+
+button {
+  background-color: #404040;
+  color: #ccc;
+}
+
+
+input[type="text"], input[type="number"], select {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #ccc;
+}
+
+
+body.dark-mode button:hover {
+  background-color: #555;
+}
+
+body.dark-mode nav li a {
+  color: #ccc;
+}
+
+body.dark-mode nav li a:hover {
+  background-color: #444;
+}
+
+body.dark-mode .chat-box {
+  background-color: #404040;
+  color: #ccc;
+}
+
+body.dark-mode .chat-box .message .author {
+  color: #f5f5f5;
+}
+
+body.dark-mode .chat-box .message .content {
+  color: #f5f5f5;
+}

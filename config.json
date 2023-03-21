@@ -1,0 +1,10 @@
+{
+  "serverAddress": "play.example.com",
+  "version": "1.16.3",
+  "throttlingDelay": 500,
+  "connectMessage": "hi",
+  "autoReconnect": true,
+  "maxRetries": 5,
+  "connectMessageEnabled": true,
+  "numberOfBots": 15
+}

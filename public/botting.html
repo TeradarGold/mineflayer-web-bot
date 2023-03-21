@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botting</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="botting.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/general">General</a></li>
+        <li><a href="/botting">Botting</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Botting</h2>
+      <label for="botting-option">Choose an option:</label>
+      <select id="botting-option">
+        <option value="chat">Chat</option>
+        <option value="respawn">Respawn</option>
+      </select>
+      <div id="chat-settings">
+        <label for="message">Message:</label>
+        <input type="text" id="message">
+      </div>
+      <label for="repeat">Repeat:</label>
+      <input type="number" id="repeat" min="1" value="1">
+      <label for="repeat-delay">Repeat Delay (ms):</label>
+      <input type="number" id="repeat-delay" min="0" value="0">
+      <button id="start-command">Start Command</button>
+    </section>
+    <section>
+      <h2>Current Jobs</h2>
+      <ul id="current-jobs">
+        <!-- Jobs will be displayed here -->
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
