@@ -6,7 +6,7 @@ HOW TO RUN?
 
 1. Download the Zip file
 2. Move the zip file into a folder and extract the contents of the Zip file into the folder
-3. Run the file "FirstTimeRun.bat", this will install all dependencies, should take less than a minute depending on your internet speed + computer speed
+3. Run the file "FirstTimeRun.bat", this will install all dependencies, should take less than a minute. You MUST wait for it to finish, it will automatically close when done.
 4. Run the file "start_app.bat", this will start the application
 5. Navigate to http://localhost:3000/general to use the bot! Make sure to equip darkmode on the top right if your eyes hurt. Try not to refresh the page while program is running.
 
