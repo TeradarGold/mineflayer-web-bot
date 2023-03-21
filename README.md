@@ -26,3 +26,6 @@ Support for version 1.19.4 does not work yet
 Message me on discord if you need any help TraderGold#1803
 
 If you would like to add functionalities to this program please do :)
+
+
+![image](https://user-images.githubusercontent.com/100248334/226503831-5fccbb13-99d4-45b7-8510-d7eef57c16e8.png)
